@@ -183,7 +183,12 @@ public class MoveValidator {
 					if( sourceRow+1 == targetRow ){
 						// move one up
 						isValid = true;
-					}else{
+					}
+					else if ((sourceRow+2 == targetRow) && (sourceRow ==1)
+							&& !arePiecesBetweenSourceAndTarget(sourceRow,sourceColumn,targetRow,targetColumn,+1,0)){
+						isValid = true;
+					}
+					else{
 						//not moving one up
 						isValid = false;
 					}
@@ -192,12 +197,19 @@ public class MoveValidator {
 					if( sourceRow-1 == targetRow ){
 						// move one down
 						isValid = true;
-					}else{
+					}
+					else if ((sourceRow-2 == targetRow) && (sourceRow ==6)
+							&& !arePiecesBetweenSourceAndTarget(sourceRow,sourceColumn,targetRow,targetColumn,-1,0)){
+						isValid = true;
+					}
+					else{
 						//not moving one down
 						isValid =  false;
 					}
 				}
-			}else{
+			}
+			else
+			{
 				// not staying in the same column
 				isValid = false;
 			}
