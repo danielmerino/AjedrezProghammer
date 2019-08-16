@@ -29,6 +29,18 @@ public class ChessGame implements Runnable{
 
 		this.moveValidator = new MoveValidator(this);
 
+		partidaNormal();
+	}
+	
+	public ChessGame(int blancas, int negras) {
+
+		this.moveValidator = new MoveValidator(this);
+
+		partidaCustom(blancas, negras);
+	}
+
+	public void partidaNormal()
+	{
 		// create and place pieces
 		// rook, knight, bishop, queen, king, bishop, knight, and rook
 		createAndAddPiece(Piece.COLOR_WHITE, Piece.TYPE_ROOK, Piece.ROW_1, Piece.COLUMN_A);
@@ -75,6 +87,44 @@ public class ChessGame implements Runnable{
 			currentColumn++;
 		}
 	}
+
+	public void partidaCustom(int blancas, int negras)
+	{
+		for (int i=8; i<=15; i++)
+		{
+			if ((((int)Math.pow(2, i)) & blancas) != 0) createAndAddPiece(Piece.COLOR_WHITE, Piece.TYPE_PAWN, Piece.ROW_2, Piece.COLUMN_A+(int)i-8);
+		}
+
+		if ((((int)Math.pow(2, 7)) & blancas) != 0) createAndAddPiece(Piece.COLOR_WHITE, Piece.TYPE_ROOK, Piece.ROW_1, Piece.COLUMN_A);
+		if ((((int)Math.pow(2, 0)) & blancas) != 0) createAndAddPiece(Piece.COLOR_WHITE, Piece.TYPE_ROOK, Piece.ROW_1, Piece.COLUMN_H);
+
+		if ((((int)Math.pow(2, 6)) & blancas) != 0) createAndAddPiece(Piece.COLOR_WHITE, Piece.TYPE_KNIGHT, Piece.ROW_1, Piece.COLUMN_B);
+		if ((((int)Math.pow(2, 1)) & blancas) != 0) createAndAddPiece(Piece.COLOR_WHITE, Piece.TYPE_KNIGHT, Piece.ROW_1, Piece.COLUMN_G);
+
+		if ((((int)Math.pow(2, 5)) & blancas) != 0) createAndAddPiece(Piece.COLOR_WHITE, Piece.TYPE_BISHOP, Piece.ROW_1, Piece.COLUMN_C);
+		if ((((int)Math.pow(2, 2)) & blancas) != 0) createAndAddPiece(Piece.COLOR_WHITE, Piece.TYPE_BISHOP, Piece.ROW_1, Piece.COLUMN_F);
+
+		if ((((int)Math.pow(2, 4)) & blancas) != 0) createAndAddPiece(Piece.COLOR_WHITE, Piece.TYPE_QUEEN, Piece.ROW_1, Piece.COLUMN_D);
+		if ((((int)Math.pow(2, 3)) & blancas) != 0) createAndAddPiece(Piece.COLOR_WHITE, Piece.TYPE_KING, Piece.ROW_1, Piece.COLUMN_E);
+
+		for (long i=8; i<=15; i++)
+		{
+			if ((((int)Math.pow(2, i)) & negras) != 0) createAndAddPiece(Piece.COLOR_BLACK, Piece.TYPE_PAWN, Piece.ROW_7, Piece.COLUMN_A+(int)i-8);
+		}
+
+		if ((((int)Math.pow(2, 7)) & negras) != 0) createAndAddPiece(Piece.COLOR_BLACK, Piece.TYPE_ROOK, Piece.ROW_8, Piece.COLUMN_A);
+		if ((((int)Math.pow(2, 0)) & negras) != 0) createAndAddPiece(Piece.COLOR_BLACK, Piece.TYPE_ROOK, Piece.ROW_8, Piece.COLUMN_H);
+
+		if ((((int)Math.pow(2, 6)) & negras) != 0) createAndAddPiece(Piece.COLOR_BLACK, Piece.TYPE_KNIGHT, Piece.ROW_8, Piece.COLUMN_B);
+		if ((((int)Math.pow(2, 1)) & negras) != 0) createAndAddPiece(Piece.COLOR_BLACK, Piece.TYPE_KNIGHT, Piece.ROW_8, Piece.COLUMN_G);
+
+		if ((((int)Math.pow(2, 5)) & negras) != 0) createAndAddPiece(Piece.COLOR_BLACK, Piece.TYPE_BISHOP, Piece.ROW_8, Piece.COLUMN_C);
+		if ((((int)Math.pow(2, 2)) & negras) != 0) createAndAddPiece(Piece.COLOR_BLACK, Piece.TYPE_BISHOP, Piece.ROW_8, Piece.COLUMN_F);
+
+		if ((((int)Math.pow(2, 4)) & negras) != 0) createAndAddPiece(Piece.COLOR_BLACK, Piece.TYPE_QUEEN, Piece.ROW_8, Piece.COLUMN_D);
+		if ((((int)Math.pow(2, 3)) & negras) != 0) createAndAddPiece(Piece.COLOR_BLACK, Piece.TYPE_KING, Piece.ROW_8, Piece.COLUMN_E);
+	}
+
 	
 	/**
 	 * set the client/player for the specified piece color

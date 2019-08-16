@@ -9,8 +9,13 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		int cuatroPeones=0b00111100_00000000;
+		int cuatroPeonesYCaballo=0b00111100_00000010;
+		int pruebaEnroque=0b11111111_10001001;
+		
 		// first we create the game
 		ChessGame chessGame = new ChessGame();
+		//ChessGame chessGame = new ChessGame(cuatroPeones,cuatroPeones);
 
 		// then we create the clients/players
 		ChessGui chessGui = new ChessGui(chessGame);
