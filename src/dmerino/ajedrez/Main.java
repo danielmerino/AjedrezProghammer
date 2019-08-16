@@ -13,8 +13,26 @@ public class Main {
 		int cuatroPeonesYCaballo=0b00111100_00000010;
 		int pruebaEnroque=0b11111111_10001001;
 		
-		// first we create the game
-		ChessGame chessGame = new ChessGame();
+		ChessGame chessGame;
+
+		if (args.length > 1) {
+			int blancasArg=0b11111111_11111111;
+			int negrasArg=0b11111111_11111111;
+			try {
+				blancasArg = Integer.parseInt(args[0],2);
+				negrasArg = Integer.parseInt(args[1],2);
+			} catch (NumberFormatException e) {
+				System.err.println("Los parametros " + args[0] + " y "+ args[1]+ " deben ser números binarios de 16 cifras.");
+				System.exit(1);
+			}
+			chessGame = new ChessGame(blancasArg,negrasArg);
+		}
+		else {
+			// first we create the game
+			chessGame = new ChessGame();
+		}
+		
+		
 		//ChessGame chessGame = new ChessGame(cuatroPeones,cuatroPeones);
 
 		// then we create the clients/players
