@@ -10,7 +10,7 @@ Tampoco se trabaja mucho el algoritmo, pero un juego con un minimax de profundid
 
 - Configuración de juego personalizable (poner las piezas que yo quiera, por ejemplo 4 peones y un caballo en cada bando) -> ya hecho.
 
-- Derivado del punto anterior: añadir condiciones nuevas de victoria (quedarse sin piezas). -> Ya hecho.
+- Derivado del punto anterior: añadir condiciones nuevas de victoria (quedarse sin piezas). -> ya hecho.
 
 - Detectar el mate y obligar a evitarlo (ahora se gana comiéndose al rey)
 
@@ -29,3 +29,13 @@ Tampoco se trabaja mucho el algoritmo, pero un juego con un minimax de profundid
 - Vista de tablero opuesta jugando con negras (creo que el diseño inicial hace muy difícil algo así)
 
 - Un minimax que con profundidad >2 no tarde tanto tiempo en mover.
+
+## Cómo jugar.
+
+- Hay un archivo AjedrezProghammer.jar en la carpeta bin. Pulsa sobre el archivo (botón derecho y guardar NO funcionará)
+- En la pantalla que aparece, hay un botón Download para descargar el jar.
+- En Windows, pulsa sobre Inicio y en el campo de texto escribe cmd y dale a intro.
+- En la pantalla que aparece escribe "java" y pulsa intro. Si da error tendrás que instalar java en tu ordenador.
+- Copia el archivo jar en la carpeta donde has aparecido al poner cmd.
+- Finalmente, escribe "java -jar AjedrezProghammer.jar" y el programa debería funcionar.
+- Si quieres poner piezas concretas añade a la línea anterior dos números binarios de 16 dígitos. Los 1 serán las piezas y los 0 los huecos. Por ejemplo los cuatro peones centrales serían "0011110000000000".
