@@ -310,7 +310,16 @@ public class ChessGame implements Runnable{
 			}
 		}
 
-		return false;
+		boolean blancasSiguen=false;
+		boolean negrasSiguen=false;
+		for (Piece piece : this.pieces) {
+			if (piece.getColor()==Piece.COLOR_WHITE) blancasSiguen=true;
+			else if (piece.getColor()==Piece.COLOR_BLACK) negrasSiguen=true;
+			if (blancasSiguen&&negrasSiguen) return false;
+		}
+
+		if (!blancasSiguen || !negrasSiguen) return true;
+		else return false;
 	}
 
 	/**
